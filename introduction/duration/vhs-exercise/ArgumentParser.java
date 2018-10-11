@@ -72,21 +72,38 @@ public class ArgumentParser {
   /**
    * Returns the exit code based on how successful the parsing was.
    * @return The exit code as an int. 0 if the parsing was successful,
-   *         1 if there was wrong number of arguments, 2 if any argument
+   *         1 if there was wrong number of arguments and 2 if any argument
    *         wouldn't parse.
    */
   public int exitCode() {
     return exitCode;
   }
 
+  /**
+   * Returns a String of any pars error messages found.
+   * @return The error messages as a String.
+   */
   public String parseErrorMessage() {
     return errorMessage.toString();
   }
 
+  /**
+   * Returns the length of the tape argument as an int.
+   * @return The length of the tape, parsed to an int.
+   */
   public int tapeLength() {
     return tapeLength;
   }
   
+
+  /**
+   * Parses the tape length argument and saves it in the instance
+   * variable tapeLength.
+   *
+   * If the parsing is not successful, it adds an error message,
+   * and sets the exitCode to 2.
+   * 
+   */
   private void parseTapeLength(String arg) {
     try {
       tapeLength = Integer.parseInt(arg);
@@ -96,9 +113,15 @@ public class ArgumentParser {
     }
   }
 
+  /**
+   * Returns the argument for already recorded minutes as an int.
+   * @return The argument for already recoded minutes as an int.
+   */
   public int used() {
     return used;
   }
+
+
   
   private void parseUsed(String arg) {
     try {
